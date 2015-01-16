@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <style>
+            * {font-family: Helvetica, Verdana, Arial; font-size:0.95em}
+            .eventNotifier{width: 100px; float: left; color:navy; border: dotted 1px navy; padding: 4px; background-color:white; margin:3px}
+            .dirty{border: solid 1px #0ca2ff; color:white; background-color:#0ca2ff}
+        </style>
+        <script type="text/javascript" src="jquery-1.4.2.js"></script>
+        <script type="text/javascript" src="jquery.hotkeys.js"></script>
+        <script type="text/javascript" src="test.js"></script>
+        <script type="text/javascript">
+            // Define your custom function 
+            _KEYFunction['custom_function'] = function( define_param ){
+                alert(define_param);
+            }
+
+            // Setting hotkey control
+            _KEYSettings({
+                'Alt+Ctrl+p' : {
+                    'function_nm':"view_detail",
+                    'param':[{'id':'id_001br', 'name':'brights'}]
+                }, 
+                'f5' : {
+                    'function_nm':"exit_screen",
+                    'param':'f5'
+                }, 
+                'f12' : {
+                    'function_nm':"exit_screen",
+                    'param':'f12'
+                }, 
+                'Ctrl+1' : {
+                    'function_nm':"exit_screen",
+                    'param':'Ctrl+1'
+                }, 
+                'Ctrl+f1' : {
+                    'function_nm':"exit_screen",
+                    'param':'Ctrl+f1'
+                }, 
+                'Ctrl+c' : {
+                    'function_nm':"custom_function",
+                    'param':'custom_function'
+                }, 
+
+            });
+
+            _KEYSettings({
+                'Ctrl+a' : {
+                    'function_nm':"exit_screen",
+                    'param':'Ctrl+a'
+                }, 
+                'Shift+Ctrl+a' : {
+                    'function_nm':"exit_screen",
+                    'param':'Shift+Ctrl+a'
+                }, 
+
+            });
+            
+        </script>
+    </head>
+
+    <body>
+        <h1>jQuery.HotKeys.Testing.</h1>
+        <h2>Testing Platform:</h2>
+        <div id="platform-details"></div>
+        <h2>Project Home: <a href="http://code.google.com/p/js-hotkeys/">http://code.google.com/p/js-hotkeys/</a></h2>
+        <div id="report-area">
+        
+        </div>
+
+    
+    </body>
+</html>

@@ -1,0 +1,184 @@
+<html>
+    <head>
+        <style>
+            * {font-family: Helvetica, Verdana, Arial; font-size:0.95em}
+            .error{border: 2px solid #FF1515}
+            .success{border: 2px solid #23C625}
+            .autocomplete-input{width:50px;}
+        </style>
+        <script src="jquery-1.8.3.min.js"></script>
+        <script src="jquery.autocomplete21.js"></script>
+        <script>
+
+            $(document).ready(function() {
+                $('#autocomplete-1').autocomplete21({
+                    source: 'get_input_json.php',
+                    input_key: 'id',
+                    output_key: 'name',
+                });
+
+                $('#autocomplete-2').autocomplete21({
+                    'source': 'get_select_json.php',
+                    'input_key': 'id',
+                    'output_key': 'name',
+                    'onClick' : function( oData ) {
+                        console.log( oData );
+
+                        // print data of option
+                        var output = '';
+                        for (var key in oData) {
+                          output += '<strong>' + key + '</strong>' + ': ' + oData[key]+'; ';
+                        }
+                        
+                        $('#option_data').html(output);
+                    }
+                });
+            });
+            
+        </script>
+
+
+    </head>
+
+    <body>
+        <h1>jQuery.autocomplete.Testing.</h1>
+        <h2>Testing Platform:</h2>
+        [ 
+          { 
+            "id" : 0,
+            "married" : true,
+            "name" : "Steven White",
+            "sons" : null,
+            "daughters" : [ 
+              { 
+                "age" : 17,
+                "name" : "Carol"
+              }
+            ]
+          },
+          { 
+            "id" : 1,
+            "married" : true,
+            "name" : "Charles Hernandez",
+            "sons" : null,
+            "daughters" : [ 
+              { 
+                "age" : 14,
+                "name" : "Sarah"
+              }
+            ]
+          },
+          { 
+            "id" : 2,
+            "married" : false,
+            "name" : "John Young",
+            "sons" : null,
+            "daughters" : [
+            ]
+          },
+          { 
+            "id" : 3,
+            "married" : true,
+            "name" : "Steven Walker",
+            "sons" : null,
+            "daughters" : [ 
+              { 
+              "age" : 28,
+              "name" : "Angela"
+              },
+              { 
+              "age" : 30,
+              "name" : "Amy"
+              }
+            ]
+          },
+          { 
+            "id" : 4,
+            "married" : true,
+            "name" : "Scott Williams",
+            "sons" : null,
+            "daughters" : [ 
+              { 
+              "age" : 16,
+              "name" : "Sharon"
+              },
+              { 
+              "age" : 20,
+              "name" : "Cynthia"
+              }
+            ]
+          },
+          { 
+            "id" : 5,
+            "married" : false,
+            "name" : "Scott Clark",
+            "sons" : null,
+            "daughters" : [ 
+              { 
+              "age" : 27,
+              "name" : "Shirley"
+              },
+              { 
+              "age" : 17,
+              "name" : "Sarah"
+              }
+            ]
+          },
+          {  
+            "id" : 6,
+            "married" : true,
+            "name" : "Joseph Wilson",
+            "sons" : null,
+            "daughters" : [
+            ]
+          },
+          { 
+            "id" : 7,
+            "married" : false,
+            "name" : "Frank Wilson",
+            "sons" : null,
+            "daughters" : [ 
+              { 
+              "age" : 11,
+              "name" : "Laura"
+              },
+              { 
+              "age" : 1,
+              "name" : "Amy"
+              }
+            ]
+          },
+          { 
+            "id" : 8,
+            "married" : false,
+            "name" : "Daniel Allen",
+            "sons" : null,
+            "daughters" : [ 
+              { 
+                "age" : 25,
+                "name" : "Kimberly"
+              }
+            ]
+          }
+        ]
+
+        <br><br>
+
+        <div id="autocomplete-1">
+            <input type="text" class="autocomplete-input"/> - 
+            <input type="text" class="autocomplete-output" readonly disabled />
+        </div>
+
+        <br>
+
+        <div id="autocomplete-2">
+            <input type="text" class="autocomplete-input" /> - 
+            <select class="autocomplete-output">
+                <!-- <option data-id=""></option> -->
+            </select>
+
+            <div id="option_data"></div>
+        </div>
+        
+    </body>
+</html>
