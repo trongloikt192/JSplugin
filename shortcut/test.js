@@ -19,6 +19,7 @@ var _KEYFunction = {
 };
 
 ///abc
+///dcf
 function _KEYSettings( key_param ) {
 
     if(typeof(key_param) === 'string') {
