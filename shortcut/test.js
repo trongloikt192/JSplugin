@@ -17,7 +17,7 @@ var _KEYFunction = {
 
     // ... More
 };
-
+/// Thay doi nhos
 
 function _KEYSettings( key_param ) {
 
